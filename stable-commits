@@ -16,4 +16,4 @@ OVMF_GIT_URL="https://github.com/tianocore/edk2.git"
 # This will build using latest upstream code. The latest upstream commit
 # documented to work properly is b360b0b589. Please report any failures
 # with upstream UEFI/OVMF builds so they can be addressed.
-OVMF_BRANCH="master"
+OVMF_BRANCH="edk2-stable202202"
