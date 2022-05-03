@@ -117,8 +117,16 @@ build_install_ovmf()
 		run_cmd $BUILD_CMD
 
 		mkdir -p $DEST
-		run_cmd cp -f Build/OvmfX64/DEBUG_$GCCVERS/FV/OVMF_CODE.fd $DEST
-		run_cmd cp -f Build/OvmfX64/DEBUG_$GCCVERS/FV/OVMF_VARS.fd $DEST
+		if [ -f Build/OvmfX64/DEBUG_$GCCVERS/FV/OVMF_CODE.fd ]; then
+                        run_cmd cp -f Build/OvmfX64/DEBUG_$GCCVERS/FV/OVMF_CODE.fd $DEST
+                fi
+                if [ -f Build/OvmfX64/DEBUG_$GCCVERS/FV/OVMF_VARS.fd ]; then
+                        run_cmd cp -f Build/OvmfX64/DEBUG_$GCCVERS/FV/OVMF_VARS.fd $DEST
+                fi
+                if [ -f Build/OvmfX64/DEBUG_$GCCVERS/FV/OVMF.fd ]; then
+                        run_cmd cp -f Build/OvmfX64/DEBUG_$GCCVERS/FV/OVMF_CODE.fd $DEST
+                fi
+
 	popd >/dev/null
 }
 
